@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Store.Web.Controllers
 {
@@ -14,12 +10,12 @@ namespace Store.Web.Controllers
         {
             this.bookService = bookService;
         }
-
+ 
         public IActionResult Index(string query)
         {
             var books = bookService.GetAllByQuery(query);
 
-            return View(books);
+            return View("Index", books);
         }
     }
 }
