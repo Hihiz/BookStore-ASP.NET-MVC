@@ -42,6 +42,31 @@ namespace Store.Tests
             Assert.Collection(actual, book => Assert.Equal(2, book.Id));
         }
 
+        [Fact]
+        public void GetAllByQuery_WithTitle_CallsGetAllByTitleOrAuthor()
+        {
+            const int idOfIsbnSearch = 1;
+            const int idOfAuthorSearch = 2;
+
+            var bookRepository = new StubBookRepository();
+
+            bookRepository.ResultOfGetAllByIsbn = new[]
+            {
+                    new Book(idOfIsbnSearch, "", "", "", "", 0m)
+                };
+
+            bookRepository.ResultOfGetAllByTitleOrAuthor = new[]
+            {
+                    new Book(idOfAuthorSearch, "", "", "", "", 0m)
+                };
+
+            var bookService = new BookService(bookRepository);
+
+            var books = bookService.GetAllByQuery("Programming");
+
+            Assert.Collection(books, book => Assert.Equal(idOfAuthorSearch, book.Id));
+        }
+
         //[Fact]
         //public void GetAllByQuery_WithIsbn_CallsGetAllByIsbn()
         //{

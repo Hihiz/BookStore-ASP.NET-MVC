@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Store
 {
@@ -13,7 +12,7 @@ namespace Store
 
         public string Title { get; }
 
-        public string Descrpition { get; }
+        public string Description { get; }
 
         public decimal Price { get; }
 
@@ -23,7 +22,7 @@ namespace Store
             Isbn = isbn;
             Author = author;
             Title = title;
-            Descrpition = description;
+            Description = description;
             Price = price;
         }
 
