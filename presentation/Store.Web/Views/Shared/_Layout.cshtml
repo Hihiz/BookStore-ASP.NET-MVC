@@ -17,17 +17,14 @@
             </form>
             <span class="navbar-text ml-auto">
                 @{
-                    Cart cart;
-                    if (!Context.Session.TryGetCart(out cart))
-                        cart = new Cart();
-
-                    if (cart.Items.Count == 0)
+                    if (Context.Session.TryGetCart(out Cart cart) && cart.TotalCount > 0)
                     {
-                        @:Корзина пуста
+                        <a href="">Товаров @cart.TotalCount на сумму @cart.TotalPrice</a>
                     }
+
                     else
                     {
-                        @:Товаров @cart.Items.Count на сумму @cart.Amount
+                        @:Корзина пуста
                     }
                 }
             </span>
@@ -38,7 +35,6 @@
             @RenderBody()
         </main>
     </div>
-
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
