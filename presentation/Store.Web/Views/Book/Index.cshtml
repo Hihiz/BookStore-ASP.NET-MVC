@@ -9,6 +9,6 @@
 <p>@Model.Description</p>
 <p>Цена <strong>"@Model.Price"</strong></p>
 <form action="@Url.Action("AddItem", "Order")" method="post">
-    <input type="hidden" name="id" value="@Model.Id" />
+    <input type="hidden" name="bookId" value="@Model.Id" />   
     <button class="btn btn-success" type="submit">В корзину</button>
 </form>
