@@ -14,6 +14,9 @@ namespace Store
             get { return items; }
         }
 
+        public string CellPhone { get; set; }
+        public OrderDelivery Delivery { get; set; }
+
         public int TotalCount => items.Sum(item => item.Count);
 
         public decimal TotalPrice => items.Sum(item => item.Price * item.Count);

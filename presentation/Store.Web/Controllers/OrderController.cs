@@ -195,6 +195,10 @@ namespace Store.Web.Controllers
                             }); ;
             }
 
+            var order = orderRepository.GetById(id);
+            order.CellPhone = cellPhone;
+            orderRepository.Update(order);
+
             HttpContext.Session.Remove(cellPhone);
 
             var model = new DeliveryModel
@@ -223,11 +227,16 @@ namespace Store.Web.Controllers
         {
             var deliveryService = deliveryServices.Single(service => service.UniqueCode == uniqueCode);
 
-            var form = deliveryService.MoveNext(id, step, values);
+            var form = deliveryService.MoveNextFrom(id, step, values);
 
             if (form.IsFinal)
             {
-                return null;
+                var order = orderRepository.GetById(id);
+                order.Delivery = deliveryService.GetDelivery(form);
+                orderRepository.Update(order);
+
+                var model = Map(order);
+                return View("PaymentMethod");
             }
 
             return View("DeliveryStep", form);
