@@ -15,7 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Web", "presentation\Store.Web\Store.Web.csproj", "{312EE697-3EA0-451D-8393-A62A92F7EFB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Tests", "domain\Store.Tests\Store.Tests.csproj", "{06D6F914-EA66-47E7-AC6A-DA9581A850C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Tests", "domain\Store.Tests\Store.Tests.csproj", "{06D6F914-EA66-47E7-AC6A-DA9581A850C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Web.Contractors", "presentation\Store.Web.Contractors\Store.Web.Contractors.csproj", "{2001D55A-9FB6-4DA7-B089-9F6E45846CD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plugins", "plugins", "{2FB7AEDC-8481-4E4E-8090-E8D52C9AE7CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.YandexKassa", "plugins\Store.YandexKassa\Store.YandexKassa.csproj", "{DB680F15-91DA-4CD3-AE29-456292BE7C4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,14 @@ Global
 		{06D6F914-EA66-47E7-AC6A-DA9581A850C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06D6F914-EA66-47E7-AC6A-DA9581A850C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06D6F914-EA66-47E7-AC6A-DA9581A850C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2001D55A-9FB6-4DA7-B089-9F6E45846CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2001D55A-9FB6-4DA7-B089-9F6E45846CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2001D55A-9FB6-4DA7-B089-9F6E45846CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2001D55A-9FB6-4DA7-B089-9F6E45846CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB680F15-91DA-4CD3-AE29-456292BE7C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB680F15-91DA-4CD3-AE29-456292BE7C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB680F15-91DA-4CD3-AE29-456292BE7C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB680F15-91DA-4CD3-AE29-456292BE7C4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +62,8 @@ Global
 		{B5CC4376-6BEB-4F3D-8772-FA2FDE5B5338} = {D39727F3-8B9A-498D-AB90-34A88FFA5400}
 		{312EE697-3EA0-451D-8393-A62A92F7EFB4} = {C7A63208-2ED0-42F8-B07F-DB84C00DB300}
 		{06D6F914-EA66-47E7-AC6A-DA9581A850C3} = {3CF081E7-3991-44A3-BE7B-3143AF90FB6A}
+		{2001D55A-9FB6-4DA7-B089-9F6E45846CD2} = {C7A63208-2ED0-42F8-B07F-DB84C00DB300}
+		{DB680F15-91DA-4CD3-AE29-456292BE7C4C} = {2FB7AEDC-8481-4E4E-8090-E8D52C9AE7CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D22B387E-A02D-4A36-87AF-5C121AA0FF8A}

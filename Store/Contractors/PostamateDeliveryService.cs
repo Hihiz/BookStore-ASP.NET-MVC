@@ -46,7 +46,7 @@ namespace Store.Contractors
 
         public string UniqueCode => "Postamate";
 
-        public string Title => "Доставка через постаматы в Москве и Санкт-Перербурге";
+        public string Title => "Доставка через постаматы в Москве, Санкт-Перербурге, Ставрополе";
 
         public OrderDelivery GetDelivery(Form form)
         {
