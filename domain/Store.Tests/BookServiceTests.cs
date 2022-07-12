@@ -1,5 +1,4 @@
 ﻿using Moq;
-using System;
 using Xunit;
 
 namespace Store.Tests

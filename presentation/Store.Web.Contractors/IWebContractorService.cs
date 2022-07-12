@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Store.Web.Contractors
+﻿namespace Store.Web.Contractors
 {
     public interface IWebContractorService
     {

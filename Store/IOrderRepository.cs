@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Store
+﻿namespace Store
 {
     public interface IOrderRepository
     {

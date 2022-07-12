@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Store.Memory
@@ -25,7 +24,7 @@ namespace Store.Memory
 
         public void Update(Order order)
         {
-            
+
         }
     }
 }

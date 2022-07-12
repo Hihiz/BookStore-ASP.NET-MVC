@@ -10,7 +10,7 @@ namespace Store.Web.Controllers
         {
             this.bookService = bookService;
         }
-     
+
         public IActionResult Index(string query)
         {
             var books = bookService.GetAllByQuery(query);
