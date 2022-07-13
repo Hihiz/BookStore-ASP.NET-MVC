@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Store.Contractors;
 using Store.Messages;
+using Store.Web.App.New;
 using Store.Web.Contractors;
 using Store.Web.Models;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Web.App.New;
 
 namespace Store.Web.Controllers
 {
