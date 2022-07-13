@@ -36,8 +36,6 @@ namespace Store.Web.Controllers
             return View("Empty");
         }
 
-
-
         [HttpPost]
         public IActionResult AddItem(int bookId, int count = 1)
         {
@@ -89,7 +87,7 @@ namespace Store.Web.Controllers
         {
             var deliveryService = deliveryServices.Single(service => service.Name == serviceName);
             var order = orderService.GetOrder();
-            var form = deliveryService.FindFirst(order);
+            var form = deliveryService.FirstForm(order);
 
             var webContractorService = webContractorServices.SingleOrDefault(service => service.Name == serviceName);
             if (webContractorService == null)
@@ -131,6 +129,23 @@ namespace Store.Web.Controllers
                                                             service => service.Title);
 
             return View("PaymentMethod", paymentMethods);
+        }
+
+        [HttpPost]
+        public IActionResult StartPayment(string serviceName)
+        {
+            var paymentService = paymentServices.Single(service => service.Name == serviceName);
+            var order = orderService.GetOrder();
+            var form = paymentService.FirstForm(order);
+
+            var webContractorService = webContractorServices.SingleOrDefault(service => service.Name == serviceName);
+            if (webContractorService == null)
+                return View("PaymentStep", form);
+
+            var returnUri = GetReturnUri(nameof(NextPayment));
+            var redirectUri = webContractorService.StartSession(form.Parameters, returnUri);
+
+            return Redirect(redirectUri.ToString());
         }
 
         [HttpPost]

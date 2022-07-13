@@ -6,12 +6,12 @@ namespace Store.Contractors
 {
     public class PostamateDeliveryService : IDeliveryService
     {
-
         private static IReadOnlyDictionary<string, string> cities = new Dictionary<string, string>
         {
             { "1", "Москва" },
             { "2", "Санкт-Петербург" },
         };
+
         private static IReadOnlyDictionary<string, IReadOnlyDictionary<string, string>> postamates = new Dictionary<string, IReadOnlyDictionary<string, string>>
         {
             {
@@ -36,13 +36,13 @@ namespace Store.Contractors
 
         public string Name => "Postamate";
 
-        public string Title => "Доставка через постаматы в Москве, Санкт-Перербурге, Ставрополе";
+        public string Title => "Доставка через постаматы в Москве и Санкт-Перербурге";
 
         public Form FirstForm(Order order)
         {
             return Form.CreateFirst(Name)
-                    .AddParameter("orderId", order.Id.ToString())
-                    .AddField(new SelectionField("Город", "city", "1", cities));
+                       .AddParameter("orderId", order.Id.ToString())
+                       .AddField(new SelectionField("Город", "city", "1", cities));
         }
 
         public Form NextForm(int step, IReadOnlyDictionary<string, string> values)
@@ -57,7 +57,7 @@ namespace Store.Contractors
                 else if (values["city"] == "2")
                 {
                     return Form.CreateNext(Name, 2, values)
-                              .AddField(new SelectionField("Постамат", "postamate", "4", postamates["2"]));
+                               .AddField(new SelectionField("Постамат", "postamate", "4", postamates["2"]));
                 }
                 else
                     throw new InvalidOperationException("Invalid postamate city.");

@@ -1,16 +1,15 @@
-﻿using Store.Memory;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Store.Web.App.New
 {
     public class BookService
     {
-        private readonly BookRepository bookRepository;
+        private readonly IBookRepository bookRepository;
 
         public BookService(IBookRepository bookRepository)
         {
-            this.bookRepository = (BookRepository)bookRepository;
+            this.bookRepository = bookRepository;
         }
 
         public BookModel GetById(int id)
