@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Web.App.New;
 
 namespace Store.Web.Controllers
 {
@@ -10,7 +11,7 @@ namespace Store.Web.Controllers
         {
             this.bookService = bookService;
         }
-
+        
         public IActionResult Index(int id)
         {
             var model = bookService.GetById(id);

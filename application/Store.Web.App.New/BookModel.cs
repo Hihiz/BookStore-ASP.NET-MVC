@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Store.Web.App.New
+﻿namespace Store.Web.App.New
 {
     public class BookModel
     {
