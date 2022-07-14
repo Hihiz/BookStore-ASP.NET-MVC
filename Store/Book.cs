@@ -13,7 +13,13 @@ namespace Store
         public string Isbn
         {
             get => dto.Isbn;
-            set => dto.Isbn = value;
+            set
+            {
+                if (TryFormatIsbn(value, out string formattedIsbn))
+                    dto.Isbn = formattedIsbn;
+
+                throw new ArgumentException(nameof(Isbn));
+            }
         }
 
         public string Author
@@ -51,16 +57,52 @@ namespace Store
             this.dto = dto;
         }
 
-        public static bool IsIsbn(string s)
+        public static bool TryFormatIsbn(string isbn, out string formattedIsbn)
         {
-            if (s == null)
+            if (isbn == null)
+            {
+                formattedIsbn = null;
                 return false;
+            }
 
-            s = s.Replace("-", "")
-                .Replace(" ", "")
-                .ToUpper();
+            formattedIsbn = isbn.Replace("-", "")
+                                .Replace(" ", "")
+                                .ToUpper();
 
-            return Regex.IsMatch(s, @"^ISBN\d{10}(\d{3})?$");
+            return Regex.IsMatch(formattedIsbn, @"^ISBN\d{10}(\d{3})?$");
+        }
+
+        public static bool IsIsbn(string isbn)
+            => TryFormatIsbn(isbn, out _);
+
+        public static class DtoFactory
+        {
+            public static BookDto Create(string isbn, string author, string title, string description, decimal price)
+            {
+                if (TryFormatIsbn(isbn, out string formattedIsbn))
+                    isbn = formattedIsbn;
+                else
+                    throw new ArgumentException(nameof(isbn));
+
+                if (string.IsNullOrWhiteSpace(title))
+                    throw new ArgumentException(nameof(Title));
+
+                return new BookDto
+                {
+                    Isbn = isbn,
+                    Author = author?.Trim(),
+                    Title = title.Trim(),
+                    Description = description?.Trim(),
+                    Price = price
+                };
+            }
+        }
+
+        public static class Mapper
+        {
+            public static Book Map(BookDto dto) => new Book(dto);
+
+            public static BookDto Map(Book domain) => domain.dto;
         }
     }
 }

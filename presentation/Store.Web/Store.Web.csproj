@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\application\Store.Web.App.New\Store.Web.App.New.csproj" />
-    <ProjectReference Include="..\..\infrastructure\Store.Memory\Store.Memory.csproj" />
     <ProjectReference Include="..\..\plugins\Store.YandexKassa\Store.YandexKassa.csproj" />
     <ProjectReference Include="..\..\Store\Store.csproj" />
   </ItemGroup>
