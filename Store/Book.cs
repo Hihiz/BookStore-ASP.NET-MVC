@@ -1,29 +1,54 @@
-﻿using System.Text.RegularExpressions;
+﻿using Store.Data;
+using System;
+using System.Text.RegularExpressions;
 
 namespace Store
 {
     public class Book
     {
-        public int Id { get; }
+        private readonly BookDto dto;
 
-        public string Isbn { get; }
+        public int Id => dto.Id;
 
-        public string Author { get; }
-
-        public string Title { get; }
-
-        public string Description { get; }
-
-        public decimal Price { get; }
-
-        public Book(int id, string isbn, string author, string title, string description, decimal price)
+        public string Isbn
         {
-            Id = id;
-            Isbn = isbn;
-            Author = author;
-            Title = title;
-            Description = description;
-            Price = price;
+            get => dto.Isbn;
+            set => dto.Isbn = value;
+        }
+
+        public string Author
+        {
+            get => dto.Author;
+            set => dto.Author = value?.Trim();
+        }
+
+        public string Title
+        {
+            get => dto.Title;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException(nameof(Title));
+
+                dto.Title = value.Trim();
+            }
+        }
+
+        public string Description
+        {
+            get => dto.Description;
+            set => dto.Description = value;
+        }
+
+        public decimal Price
+        {
+            get => dto.Price;
+            set => dto.Price = value;
+        }
+
+        internal Book(BookDto dto)
+        {
+            this.dto = dto;
         }
 
         public static bool IsIsbn(string s)
