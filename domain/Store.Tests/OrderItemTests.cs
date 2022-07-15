@@ -48,7 +48,6 @@ namespace Store.Tests
             });
         }
 
-
         [Fact]
         public void Count_WithZeroValue_ThrowsArgumentOfRangeException()
         {
