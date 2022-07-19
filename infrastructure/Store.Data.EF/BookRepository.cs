@@ -47,7 +47,7 @@ namespace Store.Data.EF
             var dbContext = dbContextFactory.Create(typeof(BookRepository));
 
             var parameter = new SqlParameter("@titleOrAuthor", titleOrAuthor);
-            return dbContext.Books
+             return dbContext.Books
                             .FromSqlRaw("SELECT * FROM Books WHERE CONTAINS((Author, Title), @titleOrAuthor)",
                                         parameter)
                             .AsEnumerable()
