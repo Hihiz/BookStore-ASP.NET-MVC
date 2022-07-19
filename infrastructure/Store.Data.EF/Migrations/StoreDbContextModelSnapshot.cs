@@ -51,9 +51,9 @@ namespace Store.Data.EF.Migrations
                         new
                         {
                             Id = 1,
-                            Author = "D. Khuth",
+                            Author = "D. Knuth",
                             Description = "This volume begins with basic programming concepts and techniques, then focuses more particularly on information structures-the representation of information inside a computer, the structural relationships between data elements and how to deal with them efficiently.",
-                            Isbn = "ISBN201038013",
+                            Isbn = "ISBN0201038013",
                             Price = 7.19m,
                             Title = "Art Of Programming, Vol. 1"
                         },

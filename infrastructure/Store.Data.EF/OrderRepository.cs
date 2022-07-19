@@ -37,7 +37,6 @@ namespace Store.Data.EF
 
         public void Update(Order order)
         {
-            throw new NotImplementedException();
             var dbContext = dbContextFactory.Create(typeof(OrderRepository));
 
             dbContext.SaveChanges();

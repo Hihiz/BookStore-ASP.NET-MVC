@@ -9,8 +9,8 @@ using Store.Data.EF;
 namespace Store.Data.EF.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20220717113616_FullTextSearth")]
-    partial class FullTextSearth
+    [Migration("20220719150841_FullTextSearh")]
+    partial class FullTextSearh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,9 +53,9 @@ namespace Store.Data.EF.Migrations
                         new
                         {
                             Id = 1,
-                            Author = "D. Khuth",
+                            Author = "D. Knuth",
                             Description = "This volume begins with basic programming concepts and techniques, then focuses more particularly on information structures-the representation of information inside a computer, the structural relationships between data elements and how to deal with them efficiently.",
-                            Isbn = "ISBN201038013",
+                            Isbn = "ISBN0201038013",
                             Price = 7.19m,
                             Title = "Art Of Programming, Vol. 1"
                         },

@@ -96,11 +96,11 @@ namespace Store.Data.EF
                     new BookDto
                     {
                         Id = 1,
-                        Isbn = "ISBN201038013",
-                        Author = "D. Khuth",
+                        Isbn = "ISBN0201038013",
+                        Author = "D. Knuth",
                         Title = "Art Of Programming, Vol. 1",
                         Description = "This volume begins with basic programming concepts and techniques, then focuses more particularly on information structures-the representation of information inside a computer, the structural relationships between data elements and how to deal with them efficiently.",
-                        Price = 7.19m
+                        Price = 7.19m,
                     },
                     new BookDto
                     {
@@ -109,7 +109,7 @@ namespace Store.Data.EF
                         Author = "M. Fowler",
                         Title = "Refactoring",
                         Description = "As the application of object technology--particularly the Java programming language--has become commonplace, a new problem has emerged to confront the software development community.",
-                        Price = 12.45m
+                        Price = 12.45m,
                     },
                     new BookDto
                     {
@@ -118,7 +118,7 @@ namespace Store.Data.EF
                         Author = "B. W. Kernighan, D. M. Ritchie",
                         Title = "C Programming Language",
                         Description = "Known as the bible of C, this classic bestseller introduces the C programming language and illustrates algorithms, data structures, and programming techniques.",
-                        Price = 14.98m
+                        Price = 14.98m,
                     }
                  );
             });

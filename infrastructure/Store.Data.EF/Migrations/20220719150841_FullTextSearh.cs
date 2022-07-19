@@ -2,7 +2,7 @@
 
 namespace Store.Data.EF.Migrations
 {
-    public partial class FullTextSearth : Migration
+    public partial class FullTextSearh : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
