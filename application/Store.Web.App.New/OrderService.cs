@@ -152,13 +152,14 @@ namespace Store.Web.App.New
 
             if (TryFormatPhone(cellPhone, out string formattedPhone))
             {
-                var confirmationCode = 1111; // todo: random.Next(1000, 10000) = 1000, 1001, ..., 9998, 9999
+                // подтвреждение кода
+                var confirmationCode = 1111;
                 model.CellPhone = formattedPhone;
                 Session.SetInt32(formattedPhone, confirmationCode);
                 notificationService.SendConfirmationCode(formattedPhone, confirmationCode);
             }
             else
-                model.Errors["cellPhone"] = "Номер телефона не соответствует формату +79876543210";
+                model.Errors["cellPhone"] = "Номер телефона не соответствует формату +79998887776";
 
             return model;
         }
