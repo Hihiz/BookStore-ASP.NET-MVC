@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Store.Contractors
 {
@@ -10,6 +9,7 @@ namespace Store.Contractors
         {
             { "1", "Москва" },
             { "2", "Санкт-Петербург" },
+            { "3", "Ставрополь" }
         };
 
         private static IReadOnlyDictionary<string, IReadOnlyDictionary<string, string>> postamates = new Dictionary<string, IReadOnlyDictionary<string, string>>
@@ -20,7 +20,7 @@ namespace Store.Contractors
                 {
                     { "1", "Казанский вокзал" },
                     { "2", "Охотный ряд" },
-                    { "3", "Савёловский рынок" },
+                    { "3", "Савёловский рынок" }
                 }
             },
             {
@@ -29,14 +29,23 @@ namespace Store.Contractors
                 {
                     { "4", "Московский вокзал" },
                     { "5", "Гостиный двор" },
-                    { "6", "Петропавловская крепость" },
+                    { "6", "Петропавловская крепость" }
+                }
+            },
+            {
+                "3",
+                new Dictionary<string, string>
+                {
+                    { "7", "Рынок" },
+                    { "8", "Центр" },
+                    { "9", "Вокзал" }
                 }
             }
         };
 
         public string Name => "Postamate";
 
-        public string Title => "Доставка через постаматы в Москве и Санкт-Перербурге";
+        public string Title => "Доставка через постаматы в Москве, Санкт-Перербурге и Ставрополе";
 
         public Form FirstForm(Order order)
         {
@@ -54,11 +63,17 @@ namespace Store.Contractors
                     return Form.CreateNext(Name, 2, values)
                                .AddField(new SelectionField("Постамат", "postamate", "1", postamates["1"]));
                 }
-                else if (values["city"] == "2")
+                if (values["city"] == "2")
                 {
                     return Form.CreateNext(Name, 2, values)
                                .AddField(new SelectionField("Постамат", "postamate", "4", postamates["2"]));
                 }
+                if (values["city"] == "3")
+                {
+                    return Form.CreateNext(Name, 2, values)
+                               .AddField(new SelectionField("Постомат", "postamate", "7", postamates["3"]));
+                }
+
                 else
                     throw new InvalidOperationException("Invalid postamate city.");
             }
