@@ -42,13 +42,16 @@ namespace Store.Data.EF
             return new Book[0];
         }
 
-        public Book[] GetAllByTitleOrAuthor(string titleOrAuthor)
+        public Book[] GetAllByTitleOrAuthor(string titleOrAuthor) 
         {
+            //titleOrAuthor = $"\"*{titleOrAuthor}*\""; /*titleOrAuthor = "\"*A*\""*/
+            titleOrAuthor = $"%{titleOrAuthor}%"; /*titleOrAuthor = "\"*A*\""*/
             var dbContext = dbContextFactory.Create(typeof(BookRepository));
 
             var parameter = new SqlParameter("@titleOrAuthor", titleOrAuthor);
              return dbContext.Books
-                            .FromSqlRaw("SELECT * FROM Books WHERE CONTAINS((Author, Title), @titleOrAuthor)",
+                            //.FromSqlRaw("SELECT * FROM Books WHERE CONTAINS((Author, Title), @titleOrAuthor)",
+                            .FromSqlRaw("SELECT * FROM Books WHERE Title LIKE @titleOrAuthor",
                                         parameter)
                             .AsEnumerable()
                             .Select(Book.Mapper.Map)

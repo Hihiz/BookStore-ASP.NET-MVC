@@ -17,15 +17,15 @@
         {
 <small class="form-text text-danger">@Model.Errors["confirmationCode"]</small>}
     </div>
-    <button type="submit" class="btn btn-success">Проверить</button>
-</form>
-
 <p>
     Если на ваш номер SMS не пришла в течение минуты, проверьте правильность номера и
     повторите отправку кода.
 </p>
+    <button type="submit" class="btn btn-success">Проверить</button>
+</form>
 
-<form action="@Url.Action("SendConfirmationCode")" method="post">
+
+@*<form action="@Url.Action("SendConfirmationCode")" method="post">
     <div class="form-group">
         <label for="cellPhone">Мобильный телефон</label>
         <input type="text" class="form-control" name="cellPhone" value="@Model.CellPhone" />
@@ -34,4 +34,4 @@
 <small class="form-text text-danger">@Model.Errors["cellPhone"]</small>}
     </div>
     <button type="submit" class="btn btn-success">Повторить код</button>
-</form>
+</form>*@
